@@ -3,14 +3,21 @@ def hapusjin():
     ji = summon()
     print(ji)
     jinh = input('Masukkan username jin : ')
+    def panjang(li):
+        akhir = li[0]
+        i = 0
+        while akhir != li[-1]:
+            akhir = li[i]
+            i+=1
+        return i
     def isvalid(a):
         val = False
-        for i in range(len(ji)):
+        for i in range(panjang(ji)):
             if ji[i]==(a,1) or ji[i]==(a,2):
                 val = True
         return val
     def ismember(a):
-        for i in range(len(ji)):
+        for i in range(panjang(ji)):
             if ji[i]==(a,1) or ji[i]==(a,2):
                 jind = ji[i]
                 return jind
