@@ -83,5 +83,3 @@ def bangun(akses, uname):
             print(f"Sisa candi yang perlu dibangun: {sisa_candi}")
     else:
         print("Hanya jin pembangun yang dapat membangun candi!")
-
-bangun("jin_pembangun", "jintomang")
