@@ -1,7 +1,7 @@
 def cekbahan(bahan):
     #read from csv
     #fungsi ini mengembalikan banyaknya bahan (air/pasir/batu)
-    f=open("bahan_bangunan.csv",  'r')
+    f=open("bahan_bangunan.csv", 'r')
     if bahan=="pasir":
         baris=f.readline().rstrip()
         baris=f.readline().rstrip()
@@ -63,9 +63,9 @@ def bangun(akses, uname):
             stok_pasir-=pasir
             
             f=open("bahan_bangunan.csv", 'w')
-            f.write("nama;deskripsi;jumlah")
-            f.write(f"pasir;yang di pantai;{stok_pasir}")
-            f.write(f"batu;yang di sungai;{stok_batu}")
+            f.write("nama;deskripsi;jumlah\n")
+            f.write(f"pasir;yang di pantai;{stok_pasir}\n")
+            f.write(f"batu;yang di sungai;{stok_batu}\n")
             f.write(f"air; yang di kolam;{stok_air}")
             f.close()
 
@@ -83,3 +83,31 @@ def bangun(akses, uname):
             print(f"Sisa candi yang perlu dibangun: {sisa_candi}")
     else:
         print("Hanya jin pembangun yang dapat membangun candi!")
+
+def kumpul(akses):
+    if akses=="jin_pengumpul":
+        import random
+        batu=random.randint(0,5)
+        air=random.randint(0,5)
+        pasir=random.randint(0,5)
+        
+        stok_batu=cekbahan("batu")
+        stok_air=cekbahan("air")
+        stok_pasir=cekbahan("pasir")
+
+        #Update bahan_bangunan.csv
+        stok_batu+=batu
+        stok_air+=air
+        stok_pasir+=pasir
+        
+        f=open("bahan_bangunan.csv", 'w')
+        f.write("nama;deskripsi;jumlah\n")
+        f.write(f"pasir;yang di pantai;{stok_pasir}\n")
+        f.write(f"batu;yang di sungai;{stok_batu}\n")
+        f.write(f"air; yang di kolam;{stok_air}\n")
+        f.close()
+
+        print(f"Jin menemukan {pasir} pasir, {batu} batu, dan  {air} air.")
+
+    else:
+        print("Hanya jin pengumpul yang dapat mengumpulkan bahan bangunan.")
