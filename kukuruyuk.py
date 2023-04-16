@@ -10,4 +10,3 @@ def kukuruyuk():
     else:
         print('Yah, Bandung Bondowoso memenangkan permainan!')
         exit()
-kukuruyuk()
