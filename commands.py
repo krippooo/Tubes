@@ -1,0 +1,1 @@
+#Transisi ke fungsi dari program utama ke file per akses
