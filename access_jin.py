@@ -49,7 +49,7 @@ def bangun(uname,users,candi,bahan_bangunan):
             jumlah_candi+=1
 
             for i in range (1,110):
-                if candi[i][0]!="":
+                if candi[i][0]=="":
                     candi[i]=[str(i),uname,pasir,batu,air]
                     break
 
