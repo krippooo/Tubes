@@ -1,7 +1,7 @@
 #F01 #F02 #F15 #F16
 
 #F01 Login
-def login(users,role):
+def login(uname,users,role):
     if role=="-": #Cek apakah sudah ada pemain yang login
         #Minta masukan
         uname = input("Masukkan username: ")
