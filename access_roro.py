@@ -7,7 +7,17 @@ def hancurkancandi():
 #F12 Ayam Berkokok
 def ayamberkokok():
     from main import candi
+    print(candi)
     def panjanglist(arr):
+        cek = ['','','','','']
+        count = 0
+        if arr[-1] == cek:
+            while arr[count] != cek:
+                cek = arr[count]
+                count+=1
+            return count-2
+        else:
+            return 100
     total = panjanglist(candi)
     if total < 100:
         print("Kukuruyuk.. Kukuruyuk..\n")
@@ -16,7 +26,7 @@ def ayamberkokok():
         exit()
     else:
         print("Kukuruyuk.. Kukuruyuk..\n")
-        print(f"Jumlah Candi: {total}\n")
+        print(f"Jumlah Candi: {100}\n")
         print("Yah, Bandung Bondowoso memenangkan permainan!")
         exit()
 
