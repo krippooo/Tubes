@@ -22,7 +22,8 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     #Akses: Bandung Bondowoso
     if input=="summonjin" : 
         if role=="bandung_bondowoso":
-            access_bandung.summon()
+            users=access_bandung.summon(users)
+            return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     if input=="hapusjin":
