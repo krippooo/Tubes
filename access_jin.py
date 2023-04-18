@@ -50,7 +50,7 @@ def bangun(uname,users,candi,bahan_bangunan):
 
             for i in range (1,110):
                 if candi[i][0]=="":
-                    candi[i]=[str(i),uname,pasir,batu,air]
+                    candi[i]=[str(i),uname,str(pasir),str(batu),str(air)]
                     break
 
         sisa_candi= 100-jumlah_candi
