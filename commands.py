@@ -3,22 +3,14 @@ import access_all, access_bandung, access_jin, access_roro, loadcsv
 def run(input,role,uname,users,candi,bahan_bangunan):
     #Akses: Semua
     if input=="login":
-        if role != "-":
-            if role == "bandung_bondowoso" :
-                print("Login gagal!")
-                print("Anda telah login dengan username Bandung, silahkan lakukan “logout” sebelum melakukan login kembali.")
-            elif role == "roro_jonggrang" :
-                print("Login gagal!")
-                print("Anda telah login dengan username Roro, silahkan lakukan “logout” sebelum melakukan login kembali.")
-        else :
-            access_all.login()
-            role = login()
+        uname,role=access_all.login(users,role)
+        return (role,uname,users,candi,bahan_bangunan)
     if input=="logout":
         if role!="-":
             role,uname = access_all.logout(role,uname)
-            return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda belum login, silahkan login terlebih dahulu sebelum melakukan logout")
+        return (role,uname,users,candi,bahan_bangunan)
     if input=="help":
         access_all.help()
     if input=="exit":
