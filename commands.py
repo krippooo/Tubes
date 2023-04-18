@@ -10,8 +10,9 @@ def run(input,role,uname,users,candi,bahan_bangunan):
             elif role == "roro_jonggrang" :
                 print("Login gagal!")
                 print("Anda telah login dengan username Roro, silahkan lakukan “logout” sebelum melakukan login kembali.")
-        access_all.login()
-        role = login()
+        else :
+            access_all.login()
+            role = login()
     if input=="logout":
         if role!="-":
             role,uname = access_all.logout(role,uname)
