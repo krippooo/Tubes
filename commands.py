@@ -3,7 +3,7 @@ import access_all, access_bandung, access_jin, access_roro, loadcsv
 def run(input,role,uname,users,candi,bahan_bangunan):
     #Akses: Semua
     if input=="login":
-        uname,role=access_all.login(users,role)
+        uname,role=access_all.login(uname,users,role)
         return (role,uname,users,candi,bahan_bangunan)
     if input=="logout":
         if role!="-":
