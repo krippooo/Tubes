@@ -17,7 +17,6 @@ def ayamberkokok():
             return count-2
         else:
             return 100
-    f = open('candi.csv','r')
     total = panjanglist(candi)
     if total < 100:
         print("Kukuruyuk.. Kukuruyuk..\n")
