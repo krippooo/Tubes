@@ -80,11 +80,125 @@ def ubah():
     hkj
 
 #F08 Batch Kumpul Bangun
-def batchkumpul():
-    jkl
+def batchkumpul(bahan_bangunan):
+    from main import users
+    from access_jin import cekbahan
+    import random
+    def cekjin(arr):  #cek jumlah jin pengumpul
+        count=0
+        for i in range(110):
+            if arr[i][2]=="jin_pengumpul":
+                count+=1
+        return count
+    jin = cekjin(users)
+    batu  = 0  # dibedakan dari kumpul biasa
+    pasir = 0
+    air   = 0
+    print(f"mengerahkan {jin} jin untuk mengumpulkan bahan.")
+    
+    if bahan_bangunan[1][0]=="": #jika belum terdefinisi
+        bahan_bangunan[1]=["pasir","butiran debu", "0"]
+        bahan_bangunan[2]=["batu","butiran besar", "0"]
+        bahan_bangunan[3]=["air","tak berbutir", "0"]
+        
+    #Ambil Bahan
+    for i in range(jin):
+        batu+=random.randint(0,5) # diloop dan ditambahkan sebanyak jlh jin
+        air+=random.randint(0,5)
+        pasir+=random.randint(0,5)
 
-def batchbangun():
-    adfdaj
+        #Cek Stok Bahan
+    stok_batu=cekbahan(bahan_bangunan,"batu")+batu
+    stok_air=cekbahan(bahan_bangunan,"air")+air
+    stok_pasir=cekbahan(bahan_bangunan,"pasir")+pasir
+
+        #Update Stok
+    bahan_bangunan[1][2]=str(stok_pasir)
+    bahan_bangunan[2][2]=str(stok_batu)
+    bahan_bangunan[3][2]=str(stok_air)
+    print(f"jin mengumpulkan total {pasir} pasir, {batu} batu, {air} air")
+    #Return
+    return(bahan_bangunan)
+
+def batchbangun(uname,users,bahan_bangunan):
+    from access_jin import cekbahan
+    from main import candi
+    import random
+    def panjanglist(arr):
+        cek = ['','','','','']
+        count = 0
+        if arr[-1] == cek:
+            while arr[count] != cek:
+                cek = arr[count]
+                count+=1
+            return count-2
+    def hitungjin(arr):
+        count=0
+        for i in range(110):
+            if arr[i][2]=="jin_pembangun":
+                count+=1
+        return count
+    def cekjin(arr):
+        initjin =['' for i in range(110)]
+        for i in range(110):
+            if arr[i][2]=="jin_pembangun":
+                initjin[i]=arr[i][0]
+        jin = [i for i in initjin if i!=''] 
+        return jin
+    def panjang(arr):
+        cek = arr[-1]
+        count=1
+        i=0
+        while arr[i] != cek:
+            i+=1
+            count+=1
+        return count
+               
+    total_jin = hitungjin(users)
+    if total_jin!=0:
+        jin = cekjin(users)
+        print(jin) 
+        #Bahan yang dibutuhkan
+        batu,pasir,air = 0,0,0
+        for i in range(total_jin):
+            batu+=random.randint(1,5)
+            air+=random.randint(1,5)
+            pasir+=random.randint(1,5)
+        print(f'mengerahkan {total_jin} jin untuk membangun candi dengan total bahan {pasir} pasir, {batu} batu, {air} air.')
+        #Bahan yang tersedia
+        stok_batu=cekbahan(bahan_bangunan,"batu")
+        stok_air=cekbahan(bahan_bangunan,"air")
+        stok_pasir=cekbahan(bahan_bangunan,"pasir")
+
+        if batu>stok_batu or air>stok_air or pasir>stok_pasir :
+                print(f"Bangun gagal, kurang {abs(pasir-stok_pasir)} pasir, {abs(batu-stok_batu)} batu, {abs(air-stok_air)} air.")
+        else: #jika bahan ada
+            
+            #Update Jumlah Bahan Bangunan
+            stok_batu-=batu
+            stok_air-=air
+            stok_pasir-=pasir
+
+            bahan_bangunan[1][2]=str(stok_pasir)
+            bahan_bangunan[2][2]=str(stok_batu)
+            bahan_bangunan[3][2]=str(stok_air)
+            for j in range(panjang(jin)):
+                username = jin[j]
+                jumlah_candi=panjanglist(candi)
+                if jumlah_candi<100: #Bangun dan Simpan Candi
+                    jumlah_candi+=1
+
+                    for i in range (1,110):
+                        if candi[i]==['','','','','']:
+                            candi[i]=[str(i),username,pasir,batu,air]
+                            break
+
+            sisa_candi= 100-jumlah_candi
+            print(f"total {total_jin} candi berhasil dibangun.")
+            print(f"Sisa candi yang perlu dibangun: {sisa_candi}")
+    else:
+        print('bangun gagal, anda tidak punya jin pembangun, silahkan summon terlebih dahulu')
+    return (candi,bahan_bangunan)
 
 #F09 Laporan Jin
 def laporanjin():
