@@ -10,7 +10,7 @@ def login(uname,users,role):
         registered=False
         found=0
         for i in range(110):
-            if uname==users[i][0]:
+            if uname==users[i][0] and uname!="":
                 registered=True
                 found=i
                 break
