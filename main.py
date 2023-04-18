@@ -9,8 +9,8 @@ users = loadcsv.loaduser() # Matriks data user
 candi = loadcsv.loadcandi() # Matriks data candi
 bahan_bangunan = loadcsv.loadbahan() # Data bahan bangunan
 
-role="abc"
-uname="abc"
+role="-"
+uname="-"
 
 while True:
   masukan = input(">>> ")
