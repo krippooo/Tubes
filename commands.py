@@ -47,12 +47,14 @@ def run(input,role,uname,users,candi,bahan_bangunan):
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     if input=="batchkumpul":
         if role=="bandung_bondowoso":
-            access_bandung.batchkumpul()
+            bahan_bangunan=access_bandung.batchkumpul(bahan_bangunan)
+            return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     if input=="batchbangun":
         if role=="bandung_bondowoso":
-            access_bandung.batchbangun()
+           candi,bahan_bangunan=access_bandung.batchbangun(uname,users,bahan_bangunan)
+           return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     if input=="laporanjin":
