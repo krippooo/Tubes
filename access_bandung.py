@@ -61,6 +61,7 @@ def summon(users):
         for i in range(3,110):
             if users[i][0]=="":
                 users[i]=[uname,pw,role]
+                break
 
         print("\n")
         print(f"Jin {uname} berhasil dipanggil!")
@@ -68,7 +69,7 @@ def summon(users):
     else:
         print("Jumlah Jin telah maksimal! (100 jin). Bandung tidak dapat men-summon lebih dari itu.")
     #Return
-        return (users)
+    return (users)
 
 
 #F04 Hilangkan Jin
@@ -227,7 +228,7 @@ def laporancandi(candi):
     total_air = 0
     for i in range (1, 110):
         if candi[i][4]!="":
-            total_pasir+=int(candi[i][4])
+            total_air+=int(candi[i][4])
 
     #Harga Candi
     maks=0
@@ -252,4 +253,4 @@ def laporancandi(candi):
 
     
 
-        
+     
