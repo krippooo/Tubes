@@ -143,7 +143,7 @@ def batchbangun(uname,users,bahan_bangunan):
         for i in range(110):
             if arr[i][2]=="jin_pembangun":
                 initjin[i]=arr[i][0]
-        jin = [i for i in initjin if i!=''] 
+        jin = list(filter(lambda x: x != '', initjin))
         return jin
     def panjang(arr):
         cek = arr[-1]
@@ -157,7 +157,6 @@ def batchbangun(uname,users,bahan_bangunan):
     total_jin = hitungjin(users)
     if total_jin!=0:
         jin = cekjin(users)
-        print(jin) 
         #Bahan yang dibutuhkan
         batu,pasir,air = 0,0,0
         for i in range(total_jin):
