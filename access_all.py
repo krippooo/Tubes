@@ -5,7 +5,7 @@ def login():
     uname = input("usr")
     pw = input("pw")
     role = "-"
-    with open(r"C:\Tubes daspro\csv tubes\user.csv", mode='r') as f:        #buat ngeakses si csv
+    with open("user.csv", mode='r') as f:        #buat ngeakses si csv
         reader = csv.DictReader(f, delimiter=';')                           #ngeread csv
         for row in reader:                                                  
             if row['username'] == uname and row['password'] == pw :         #row[blabla] sesuai kolom
