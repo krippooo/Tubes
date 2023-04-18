@@ -8,15 +8,6 @@ def hancurkancandi():
 def ayamberkokok():
     from main import candi
     def panjanglist(arr):
-        cek = ['','','','','']
-        count = 0
-        if arr[-1] != cek:
-            while arr[count] != cek:
-                cek = arr[count]
-                count+=1
-            return count-2
-        else:
-            return 100
     total = panjanglist(candi)
     if total < 100:
         print("Kukuruyuk.. Kukuruyuk..\n")
