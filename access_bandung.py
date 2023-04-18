@@ -81,8 +81,8 @@ def ubah():
     hkj
 
 #F08 Batch Kumpul Bangun
-def batchkumpul(bahan_bangunan):
-    from main import users
+def batchkumpul(users,bahan_bangunan):
+    # from main import users
     from access_jin import cekbahan
     import random
     def cekjin(arr):  #cek jumlah jin pengumpul
@@ -95,7 +95,7 @@ def batchkumpul(bahan_bangunan):
     batu  = 0  # dibedakan dari kumpul biasa
     pasir = 0
     air   = 0
-    print(f"mengerahkan {jin} jin untuk mengumpulkan bahan.")
+    print(f"Mengerahkan {jin} jin untuk mengumpulkan bahan.")
     
     if bahan_bangunan[1][0]=="": #jika belum terdefinisi
         bahan_bangunan[1]=["pasir","butiran debu", "0"]
@@ -108,22 +108,22 @@ def batchkumpul(bahan_bangunan):
         air+=random.randint(0,5)
         pasir+=random.randint(0,5)
 
-        #Cek Stok Bahan
+    #Cek Stok Bahan
     stok_batu=cekbahan(bahan_bangunan,"batu")+batu
     stok_air=cekbahan(bahan_bangunan,"air")+air
     stok_pasir=cekbahan(bahan_bangunan,"pasir")+pasir
 
-        #Update Stok
+    #Update Stok
     bahan_bangunan[1][2]=str(stok_pasir)
     bahan_bangunan[2][2]=str(stok_batu)
     bahan_bangunan[3][2]=str(stok_air)
-    print(f"jin mengumpulkan total {pasir} pasir, {batu} batu, {air} air")
+    print(f"Jin mengumpulkan total {pasir} pasir, {batu} batu, {air} air")
     #Return
     return(bahan_bangunan)
 
-def batchbangun(uname,users,bahan_bangunan):
+def batchbangun(candi,users,bahan_bangunan):
     from access_jin import cekbahan
-    from main import candi
+    # from main import candi
     import random
     def panjanglist(arr):
         cek = ['','','','','']
@@ -164,7 +164,7 @@ def batchbangun(uname,users,bahan_bangunan):
             batu+=random.randint(1,5) #hapus +
             air+=random.randint(1,5)
             pasir+=random.randint(1,5)
-        print(f'mengerahkan {total_jin} jin untuk membangun candi dengan total bahan {pasir} pasir, {batu} batu, {air} air.')
+        print(f'Mengerahkan {total_jin} jin untuk membangun candi dengan total bahan {pasir} pasir, {batu} batu, {air} air.')
         #Bahan yang tersedia
         stok_batu=cekbahan(bahan_bangunan,"batu") # majukan
         stok_air=cekbahan(bahan_bangunan,"air")
@@ -200,10 +200,10 @@ def batchbangun(uname,users,bahan_bangunan):
                             break
 
             sisa_candi= 100-jumlah_candi
-            print(f"total {total_jin} candi berhasil dibangun.")
+            print(f"Total {total_jin} candi berhasil dibangun.")
             print(f"Sisa candi yang perlu dibangun: {sisa_candi}")
     else:
-        print('bangun gagal, anda tidak punya jin pembangun, silahkan summon terlebih dahulu')
+        print('Bangun gagal. Anda tidak punya jin pembangun, silahkan summon terlebih dahulu')
     return (candi,bahan_bangunan)
 
 #F09 Laporan Jin
@@ -253,4 +253,4 @@ def laporancandi(candi):
 
     
 
-     
+        
