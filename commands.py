@@ -1,18 +1,23 @@
-import access_all, access_bandung, access_jin, access_roro
+import access_all, access_bandung, access_jin, access_roro, loadcsv
 
-def run(input,role):
+def run(input,role,uname,users,candi,bahan_bangunan):
     #Akses: Semua
     if input=="login":
         access_all.login()
     if input=="logout":
-        if role!="":
-            access_all.logout()
+        if role!="-":
+            role,uname = access_all.logout(role,uname)
+            return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda belum login, silahkan login terlebih dahulu sebelum melakukan logout")
     if input=="help":
         access_all.help()
     if input=="exit":
         access_all.exit()
+    if input=="tempstate":
+        access_all.tempstate(role,uname,users,candi,bahan_bangunan)
+        return (role,uname,users,candi,bahan_bangunan)
+
 
     #Akses: Bandung Bondowoso
     if input=="summonjin" : 
@@ -76,6 +81,3 @@ def run(input,role):
             access_jin.bangun()
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
-
-    else:
-        print("Command tersebut tidak ada. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
