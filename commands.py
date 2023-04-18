@@ -4,17 +4,21 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     #Akses: Semua
     if input=="login":
         uname,role=access_all.login(uname,users,role)
+        # return (role,uname,users,candi,bahan_bangunan)
     elif input=="logout":
         if role!="-":
             role,uname = access_all.logout(role,uname)
         else:
             print("Anda belum login, silahkan login terlebih dahulu sebelum melakukan logout")
+        # return (role,uname,users,candi,bahan_bangunan)
     elif input=="help":
         access_all.help()
     elif input=="exit":
         access_all.exit()
     elif input=="tempstate":
         access_all.tempstate(role,uname,users,candi,bahan_bangunan)
+        # return (role,uname,users,candi,bahan_bangunan)
+
 
     #Akses: Bandung Bondowoso
     elif input=="summonjin" : 
@@ -22,6 +26,7 @@ def run(input,role,uname,users,candi,bahan_bangunan):
             users=access_bandung.summon(users)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
+        # return (role,uname,users,candi,bahan_bangunan)
     elif input=="hapusjin":
         if role=="bandung_bondowoso":
             access_bandung.hapus()
@@ -34,12 +39,14 @@ def run(input,role,uname,users,candi,bahan_bangunan):
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     elif input=="batchkumpul":
         if role=="bandung_bondowoso":
-            bahan_bangunan=access_bandung.batchkumpul(bahan_bangunan)
+            bahan_bangunan=access_bandung.batchkumpul(users,bahan_bangunan)
+            # return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     elif input=="batchbangun":
         if role=="bandung_bondowoso":
-           candi,bahan_bangunan=access_bandung.batchbangun(uname,users,bahan_bangunan)
+           candi,bahan_bangunan=access_bandung.batchbangun(candi,users,bahan_bangunan)
+        #    return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     elif input=="laporanjin":
@@ -50,6 +57,7 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     elif input=="laporancandi":
         if role=="bandung_bondowoso":
             access_bandung.laporancandi(candi)
+            # return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     
@@ -69,6 +77,7 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     elif input=="kumpul":
         if role=="jin_pengumpul":
             bahan_bangunan=access_jin.kumpul(bahan_bangunan)
+            # return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
 
@@ -76,6 +85,7 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     elif input=="bangun":
         if role=="jin_pembangun":
             candi,bahan_bangunan=access_jin.bangun(uname,users,candi,bahan_bangunan)
+            # return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
 
