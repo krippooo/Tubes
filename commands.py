@@ -52,7 +52,8 @@ def run(input,role,uname,users,candi,bahan_bangunan):
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     if input=="laporancandi":
         if role=="bandung_bondowoso":
-            access_bandung.laporancandi()
+            access_bandung.laporancandi(candi)
+            return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     
@@ -71,13 +72,15 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     #Akses: Jin Pengumpul
     if input=="kumpul":
         if role=="jin_pengumpul":
-            access_jin.kumpul()
+            bahan_bangunan=access_jin.kumpul(bahan_bangunan)
+            return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
 
     #Akses: Jin Pembangun
     if input=="bangun":
         if role=="jin_pembangun":
-            access_jin.bangun()
+            candi,bahan_bangunan=access_jin.bangun(uname,users,candi,bahan_bangunan)
+            return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
