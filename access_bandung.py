@@ -158,19 +158,24 @@ def batchbangun(uname,users,bahan_bangunan):
     if total_jin!=0:
         jin = cekjin(users)
         #Bahan yang dibutuhkan
-        batu,pasir,air = 0,0,0
+        batu,pasir,air = 0,0,0 # hapus
         for i in range(total_jin):
-            batu+=random.randint(1,5)
+            batu+=random.randint(1,5) #hapus +
             air+=random.randint(1,5)
             pasir+=random.randint(1,5)
         print(f'mengerahkan {total_jin} jin untuk membangun candi dengan total bahan {pasir} pasir, {batu} batu, {air} air.')
         #Bahan yang tersedia
-        stok_batu=cekbahan(bahan_bangunan,"batu")
+        stok_batu=cekbahan(bahan_bangunan,"batu") # majukan
         stok_air=cekbahan(bahan_bangunan,"air")
         stok_pasir=cekbahan(bahan_bangunan,"pasir")
-
-        if batu>stok_batu or air>stok_air or pasir>stok_pasir :
-                print(f"Bangun gagal, kurang {abs(pasir-stok_pasir)} pasir, {abs(batu-stok_batu)} batu, {abs(air-stok_air)} air.")
+        def kurangbahan(stok,kebutuhan):
+            if stok > kebutuhan:
+                return 0
+            else:
+                return abs(stok-kebutuhan)
+        if pasir>stok_pasir or batu>stok_batu or air>stok_air :
+            print(f"Bangun gagal, kurang {kurangbahan(stok_pasir,pasir)} pasir, {kurangbahan(stok_batu,batu)} batu, dan {kurangbahan(stok_air,air)} air.")
+        
         else: #jika bahan ada
             
             #Update Jumlah Bahan Bangunan
@@ -181,6 +186,7 @@ def batchbangun(uname,users,bahan_bangunan):
             bahan_bangunan[1][2]=str(stok_pasir)
             bahan_bangunan[2][2]=str(stok_batu)
             bahan_bangunan[3][2]=str(stok_air)
+
             for j in range(panjang(jin)):
                 username = jin[j]
                 jumlah_candi=panjanglist(candi)
@@ -189,7 +195,7 @@ def batchbangun(uname,users,bahan_bangunan):
 
                     for i in range (1,110):
                         if candi[i]==['','','','','']:
-                            candi[i]=[str(i),username,pasir,batu,air]
+                            candi[i]=[str(i),username,random.randint(1,5),random.randint(1,5),random.randint(1,5)]
                             break
 
             sisa_candi= 100-jumlah_candi
