@@ -4,6 +4,7 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     #Akses: Semua
     if input=="login":
         access_all.login()
+        role = login()
     if input=="logout":
         if role!="-":
             role,uname = access_all.logout(role,uname)
