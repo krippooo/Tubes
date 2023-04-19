@@ -207,8 +207,77 @@ def batchbangun(candi,users,bahan_bangunan):
     return (candi,bahan_bangunan)
 
 #F09 Laporan Jin
-def laporanjin():
-    adf
+def laporanjin(users,candi,bahan_bangunan):
+    #Hitung jumlah dan masing-masing tipe jin
+    jumlah_jin=0
+    jumlah_jin_pengumpul=0
+    jumlah_jin_pembangun=0
+    for i in range(110):
+        if users[i][2]=="jin_pengumpul":
+            jumlah_jin+=1
+            jumlah_jin_pengumpul+=1
+        if users[i][2]=="jin_pembangun":
+            jumlah_jin+=1
+            jumlah_jin_pembangun+=1
+
+    #Buat list nama jin pembangun dan candi yang ia bangun
+    workload_jin_pembangun=[["",0] for i in range(jumlah_jin_pembangun)]
+    def cek_di_workload(nama):
+        idx=-1
+        for i in range(jumlah_jin_pembangun):
+            if workload_jin_pembangun[i][0]==nama:
+                idx=i
+                break
+        return idx
+    
+    for i in range(1,110):
+        indeks=cek_di_workload(candi[i][1])
+        if indeks!=-1: #sudah tertulis
+            workload_jin_pembangun[indeks][1]+=1
+        else: #belum tertulis
+            for j in range(jumlah_jin_pembangun):
+                if workload_jin_pembangun[j][0]=="":
+                    workload_jin_pembangun[j][0]=candi[i][1]
+                    workload_jin_pembangun[j][1]+=1
+                    break
+
+    jin_terajin=workload_jin_pembangun[0][0]
+    candi_terajin=workload_jin_pembangun[0][1]
+    candi_termalas=workload_jin_pembangun[0][1]
+    jin_termalas=workload_jin_pembangun[0][0]
+    for i in range(1,jumlah_jin_pembangun):
+        if (workload_jin_pembangun[i][1] > candi_terajin):
+            jin_terajin=workload_jin_pembangun[i][0]
+            candi_terajin=workload_jin_pembangun[i][1]
+        elif (workload_jin_pembangun[i][1] == candi_terajin):
+            if (workload_jin_pembangun[i][0] < jin_terajin):
+                jin_terajin=workload_jin_pembangun[i][0]
+                candi_terajin=workload_jin_pembangun[i][1]
+        if (workload_jin_pembangun[i][1] < candi_termalas):
+            jin_termalas=workload_jin_pembangun[i][0]
+            candi_termalas=workload_jin_pembangun[i][1]
+        elif (workload_jin_pembangun[i][1] == candi_termalas):
+            if (workload_jin_pembangun[i][0] > jin_termalas):
+                jin_termalas=workload_jin_pembangun[i][0]
+                candi_termalas=workload_jin_pembangun[i][1]
+
+    #Bahan Tersedia
+    from access_jin import cekbahan
+    stok_batu=cekbahan(bahan_bangunan,"batu")
+    stok_air=cekbahan(bahan_bangunan,"air")
+    stok_pasir=cekbahan(bahan_bangunan,"pasir")
+        
+    #Output
+    print("============ LAPORAN JIN =============")
+    print(f"Total Jin: {jumlah_jin}")
+    print(f"Total Jin Pengumpul: {jumlah_jin_pengumpul}")
+    print(f"Total Jin Pembangun: {jumlah_jin_pembangun}")
+    print(f"Jin Terajin: {jin_terajin} ({candi_terajin})")
+    print(f"Jin Termalas: {jin_termalas} ({candi_termalas})")
+    print(f"Jumlah Pasir: {stok_pasir} unit")
+    print(f"Jumlah Batu: {stok_batu} unit")
+    print(f"Jumlah Air: {stok_air} unit")
+    
 
 #F10 Laporan Candi
 def laporancandi(candi):
