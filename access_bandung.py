@@ -72,8 +72,7 @@ def summon(users):
     return (users)
 
 #F04
-def hapus(users,candi):
-    #jin = input("Masukkan Nama jin: ")
+def hapus(users,candi): #masih ga betul :)
     def hitungjini(users):
         jumlah_jin=0
         for i in range(110):
