@@ -29,7 +29,8 @@ def run(input,role,uname,users,candi,bahan_bangunan):
         # return (role,uname,users,candi,bahan_bangunan)
     elif input=="hapusjin":
         if role=="bandung_bondowoso":
-            access_bandung.hapus()
+            users,candi = access_bandung.hapus(users,candi)
+            return (role,uname,users,candi,bahan_bangunan)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     elif input=="ubahjin":
