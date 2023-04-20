@@ -71,10 +71,60 @@ def summon(users):
     #Return
     return (users)
 
+#F04
+def hapus(users,candi):
+    #jin = input("Masukkan Nama jin: ")
+    def hitungjini(users):
+        jumlah_jin=0
+        for i in range(110):
+            if users[i][0]!="":
+                jumlah_jin+=1
+        return jumlah_jin-3
+    def usernamejin(arr):
+        initjin = [['' for i in range(2)] for j in range(110)]
+        for i in range(110):
+            if arr[i][2] == "jin_pengumpul" or arr[i][2] == "jin_pembangun":
+                initjin[i][0] = arr[i][0]
+                initjin[i][1] = arr[i][2]
+        username = list(filter(lambda x : x!=['',''], initjin))
+        return username
+    def isvalid(arr,input):
+        cek = False
+        i=0
+        for i in range(hitungjini(users)):
+            if arr[i][0]==input:
+                cek = True
+        return cek
+    userjin = usernamejin(users)
+    print(userjin)
+    jin = input("Masukkan username jin : ")
+    if isvalid(userjin,jin)==True:
+        conf = input(f'apakah anda yakin menghapus jin dengan username {jin} (Y/N)?')
+        if conf =="Y" or conf== "y":
+            for i in range(110):
+                if candi[i][1]==jin:
+                    tempcandi= [['' for i in range(5)]for j in range(110)]
+                    newcandi=list(filter(lambda x : x!=candi[i],candi))
+                    for i in range(110):
+                        if i ==109:
+                            break
+                        else:
+                            tempcandi[i]=newcandi[i]
+                if users[i][0]==jin:
+                    tempusers = [['' for i in range(3)] for j in range(110)]
+                    newusers=list(filter(lambda x : x!=users[i],users))
+                    for i in range(110):
+                        if i==109:
+                            break
+                        else:
+                            tempusers[i]=newusers[i]
+            return (tempusers,tempcandi)  
+        else:
+            return(users,candi)                  
+    else:
+        print('tidak ada jin dengan username tersebut.')
+        return (users,candi)
 
-#F04 Hilangkan Jin
-def hapus():
-    asddf
 
 #F05 Ubah Jin
 def ubah():
