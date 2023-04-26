@@ -1,13 +1,34 @@
 #F11 #F12
 
 #F11 Hancurkan Candi
-def hancurkancandi():
-    print("asdf")
+def hancurkancandi(candi):
+    id_candi=input("Masukkan ID Candi: ")
+    int_id=int(id_candi)
+
+    candi_found=False
+    if candi[int_id][0]==id_candi:
+        candi_found=True
+
+    if candi_found:
+        hancurkan=input(f"Apakah anda yakin ingin menghancurkan candi ID: {id_candi} (Y/N)? ")
+        if hancurkan=="N":
+            print("\n")
+            print(f"Candi {id_candi} tidak dihancurkan.")
+        elif hancurkan=="Y":
+            candi[int_id] = ["" for i in range (5)] #Kosongkan candi
+            print("\n")
+            print(f"Candi {id_candi} telah berhasil dihancurkan.")
+        else:
+            print("Anda memasukkan input yang salah. Gagal menghancurkan candi.")
+    else:
+        print("Tidak ada candi dengan ID tersebut.")
+    
+    return candi
 
 #F12 Ayam Berkokok
 def ayamberkokok():
     from main import candi
-    print(candi)
+    # print(candi)
     def panjanglist(arr):
         cek = ['','','','','']
         count = 0
