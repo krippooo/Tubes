@@ -12,7 +12,7 @@ def run(input,role,uname,users,candi,bahan_bangunan):
             print("Anda belum login, silahkan login terlebih dahulu sebelum melakukan logout")
         # return (role,uname,users,candi,bahan_bangunan)
     elif input=="help":
-        access_all.help()
+        access_all.help(role)
     elif input=="exit":
         access_all.exit()
     elif input=="tempstate":
