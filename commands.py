@@ -1,4 +1,4 @@
-import access_all, access_bandung, access_jin, access_roro, loadcsv
+import access_all, access_bandung, access_jin, access_roro, loadcsv, loadsave
 
 def run(input,role,uname,users,candi,bahan_bangunan):
     #Akses: Semua
