@@ -1,4 +1,5 @@
 #F11 #F12
+import access_all
 
 #F11 Hancurkan Candi
 def hancurkancandi(candi):
@@ -49,7 +50,7 @@ def ayamberkokok():
         print("Kukuruyuk.. Kukuruyuk..\n")
         print(f"Jumlah Candi: {100}\n")
         print("Yah, Bandung Bondowoso memenangkan permainan!")
-        exit()
+        access_all.exit("")
 
 
 
