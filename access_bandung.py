@@ -130,8 +130,35 @@ def hapus(users,candi):
         return (users,candi)
 
 #F05 Ubah Jin
-def ubah():
-    hkj
+def ubahjin (users):
+    uname = input("Masukkan username jin :")
+    if cekuname (users, uname) == True:
+        if role == "jin_pembangun" :
+            change = input("JIn ini bertipe \"Pembangun\". Yakin ingin mengubah ke tipe \"Pengumpul\" (Y/N)?  ")
+            if change == "y" or "Y" :
+                role == "jin_pengumpul"
+                print("Jin telah berhasil diubah.")
+            elif change == "n" or "N":
+                print("Jin tidak jadi diubah")
+            else :
+                print("Silahkan ulangi command, input yang anda berikan salah")
+        if role == "jin_pengumpul" :
+            change = input("JIn ini bertipe \"Pengumpul\". Yakin ingin mengubah ke tipe \"Pembangun\" (Y/N)?  ")
+            if change == "y" or "Y" :
+                role == "jin_pembangun"
+                print("Jin telah berhasil diubah.")
+            elif change == "n" or "N":
+                print("Jin tidak jadi diubah")
+            else :
+                print("Silahkan ulangi command, input yang anda berikan salah")
+    if cekuname(users, uname) == False :
+        print("Tidak ada jin dengan username tersebut")
+        
+    
+    for i in range (3,110):
+        if users[i][0] == uname :
+            users[i][2] == role
+            break
 
 #F08 Batch Kumpul Bangun
 def batchkumpul(users,bahan_bangunan):
