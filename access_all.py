@@ -1,4 +1,5 @@
 #F01 #F02 #F15 #F16
+import sys
 
 #F01 Login
 def login(uname,users,role):
@@ -105,5 +106,12 @@ def help(role):
 
 #F16 Exit
 def exit():
-    asdf
+    masukkan =input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (Y/N)")
+    if masukkan == "y" or "Y" :
+        save()
+        sys.exit("Anda telah keluar dari program")
+    elif masukkan == 'n' or "N" :
+        sys.exit("Anda telah keluar dari program")
+    else :
+        exit()
 
