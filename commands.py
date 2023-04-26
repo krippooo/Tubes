@@ -18,6 +18,8 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     elif input=="tempstate":
         access_all.tempstate(role,uname,users,candi,bahan_bangunan)
         # return (role,uname,users,candi,bahan_bangunan)
+    elif input=="save":
+        loadsave.save(users,candi,bahan_bangunan)
 
 
     #Akses: Bandung Bondowoso
