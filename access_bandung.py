@@ -136,7 +136,7 @@ def ubahjin (users):
         if role == "jin_pembangun" :
             change = input("JIn ini bertipe \"Pembangun\". Yakin ingin mengubah ke tipe \"Pengumpul\" (Y/N)?  ")
             if change == "y" or "Y" :
-                role == "jin_pengumpul"
+                role = "jin_pengumpul"
                 print("Jin telah berhasil diubah.")
             elif change == "n" or "N":
                 print("Jin tidak jadi diubah")
@@ -145,7 +145,7 @@ def ubahjin (users):
         if role == "jin_pengumpul" :
             change = input("JIn ini bertipe \"Pengumpul\". Yakin ingin mengubah ke tipe \"Pembangun\" (Y/N)?  ")
             if change == "y" or "Y" :
-                role == "jin_pembangun"
+                role = "jin_pembangun"
                 print("Jin telah berhasil diubah.")
             elif change == "n" or "N":
                 print("Jin tidak jadi diubah")
@@ -157,7 +157,7 @@ def ubahjin (users):
     
     for i in range (3,110):
         if users[i][0] == uname :
-            users[i][2] == role
+            users[i][2] = role
             break
 
 #F08 Batch Kumpul Bangun
