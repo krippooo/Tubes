@@ -2,22 +2,24 @@ import os
 #F13 
 
 #F14 Save
-def save() :
+def save(users,candi,bahan_bangunan) :
     
     def saveuser(file_name, users):
-        with open (file_name, "w", newline= '') as data :
-            a = csv.writer(data, delimiter= ",")
-            a.writerows(users)
+        f=open(file_name, "w")
+        for user in users:
+            f.write(f"{user[0]};{user[1]};{user[2]}\n")
+
 
     def savecandi(file_name, candi):
-        with open (file_name, "w", newline= '') as data :
-            a = csv.writer(data, delimiter = ",")
-            a.writerows(candi)
+        f=open(file_name, "w")
+        for per_candi in candi:
+            f.write(f"{per_candi[0]};{per_candi[1]};{per_candi[2]};{per_candi[3]};{per_candi[4]}\n")
             
     def savebahan(file_name, bahan_bangunan):
-        with open (file_name, "w", newline= '') as data :
-            a = csv.writer(data, delimiter= ",")
-            a.writerows(bahan_bangunan)
+        f=open(file_name, "w")
+        for bahan in bahan_bangunan:
+            f.write(f"{bahan[0]};{bahan[1]};{bahan[2]}\n")
+            
 
     direct = os.getcwd()
     ada_save = "save"
