@@ -105,8 +105,7 @@ def help(role):
         print('Untuk mengumpulkan bahan bangunan')
 
 #F16 Exit
-def exit():
-    masukkan =input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (Y/N)")
+def exit(masukkan):
     if masukkan == "y" or "Y" :
         save()
         sys.exit("Anda telah keluar dari program")
