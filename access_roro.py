@@ -43,12 +43,10 @@ def ayamberkokok(candi):
         print("Kukuruyuk.. Kukuruyuk..\n")
         print(f"Jumlah Candi: {total}\n")
         print("Selamat, Roro Jonggrang memenangkan permainan!\n\n*Bandung Bondowoso angry noise*\nRoro Jonggrang dikutuk menjadi candi.")
-        exit()
     else:
         print("Kukuruyuk.. Kukuruyuk..\n")
         print(f"Jumlah Candi: {100}\n")
         print("Yah, Bandung Bondowoso memenangkan permainan!")
-        exit()
 
 
 
