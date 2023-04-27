@@ -73,7 +73,8 @@ def run(input,role,uname,users,candi,bahan_bangunan):
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     elif input=="ayamberkokok":
         if role=="roro_jonggrang":
-            access_roro.ayamberkokok()
+            access_roro.ayamberkokok(candi)
+            exit()
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
 
