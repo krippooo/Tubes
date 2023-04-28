@@ -226,14 +226,6 @@ def batchbangun(candi,users,bahan_bangunan):
                 initjin[i]=arr[i][0]
         jin = list(filter(lambda x: x != '', initjin))
         return jin
-    def panjang(arr):
-        cek = arr[-1]
-        count=1
-        i=0
-        while arr[i] != cek:
-            i+=1
-            count+=1
-        return count
                
     total_jin = hitungjin(users)
     if total_jin!=0:
@@ -268,7 +260,7 @@ def batchbangun(candi,users,bahan_bangunan):
             bahan_bangunan[2][2]=str(stok_batu)
             bahan_bangunan[3][2]=str(stok_air)
 
-            for j in range(panjang(jin)):
+            for j in range(total_jin):
                 username = jin[j]
                 jumlah_candi=panjanglist(candi)
                 if jumlah_candi<100: #Bangun dan Simpan Candi
