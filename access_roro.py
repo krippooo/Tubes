@@ -36,8 +36,7 @@ def ayamberkokok(candi):
                 count+=1
             else:
                 return count-1
-        else:
-            return 100
+     
     total = panjanglist(candi)
     if total < 100:
         print("Kukuruyuk.. Kukuruyuk..\n")
