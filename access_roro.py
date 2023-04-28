@@ -28,16 +28,15 @@ def hancurkancandi(candi):
 
 #F12 Ayam Berkokok
 def ayamberkokok(candi):
-    def panjanglist(arr):
+     def banyakcandi(arr):
         cek = ['','','','','']
         count = 0
-        for i in range(110):
+        for i in range(1,110):
             if arr[i]!=cek:
                 count+=1
-            else:
-                return count-1
+        return count
      
-    total = panjanglist(candi)
+    total = banyakcandi(candi)
     if total < 100:
         print("Kukuruyuk.. Kukuruyuk..\n")
         print(f"Jumlah Candi: {total}\n")
