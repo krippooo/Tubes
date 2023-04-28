@@ -96,37 +96,33 @@ def hapus(users,candi):
         return cek
     userjin = usernamejin(users)
     print(userjin)
-    jin = str(input("Masukkan username jin : "))
+    jin = input("Masukkan username jin : ")
     if isvalid(userjin,jin)==True:
         conf = input(f'apakah anda yakin menghapus jin dengan username {jin} (Y/N)?')
         if conf =="Y" or conf== "y":
-            tempcandi= [['' for i in range(5)]for j in range(110)]
+            print('Jin telah berhasil dihapus dari alam gaib.')
+            count=0
             for i in range(110):
-                if candi[i][1]==jin:
-                    hapundi=candi[i]
-                    print(hapundi)
-                    newcandi=list(filter(lambda x : x!=hapundi,candi))
-                    for i in range(109):
-                        tempcandi[i]=newcandi[i]
-                    candi=tempcandi
-                    print('candi terhapus')
-                else:
-                    tempcandi=candi
+                hapundi=candi[i]
+                if hapundi[1]==jin:
+                    candi[i]=['','','','','']
+                    count+=1
+            print(f"menghapus total {count} candi.")
             tempusers = [['' for i in range(3)] for j in range(110)]
-            for i in range(110):
-                if users[i][0]==jin:
-                    hapuser = users[i]
+            for k in range(110):
+                if users[k][0]==jin:
+                    hapuser = users[k]
                     newusers=list(filter(lambda x : x!=hapuser,users))
-                    for i in range(110):
-                        if i==109:
+                    for j in range(110):
+                        if j==109:
                             break
                         else:
-                            tempusers[i]=newusers[i]
-            return (tempusers,tempcandi)  
+                            tempusers[j]=newusers[j]
+            return (tempusers,candi)  
         else:
             return(users,candi)                  
     else:
-        print('tidak ada jin dengan username tersebut.')
+        print('Tidak ada jin dengan username tersebut.')
         return (users,candi)
 
 #F05 Ubah Jin
@@ -205,14 +201,13 @@ def batchbangun(candi,users,bahan_bangunan):
     from access_jin import cekbahan
     # from main import candi
     import random
-    def panjanglist(arr):
+    def banyakcandi(arr):
         cek = ['','','','','']
         count = 0
-        if arr[-1] == cek:
-            while arr[count] != cek:
-                cek = arr[count]
+        for i in range(1,110):
+            if arr[i]!=cek:
                 count+=1
-            return count-2
+        return count
     def hitungjin(arr):
         count=0
         for i in range(110):
@@ -262,7 +257,7 @@ def batchbangun(candi,users,bahan_bangunan):
 
             for j in range(total_jin):
                 username = jin[j]
-                jumlah_candi=panjanglist(candi)
+                jumlah_candi=banyakcandi(candi)
                 if jumlah_candi<100: #Bangun dan Simpan Candi
                     jumlah_candi+=1
 
