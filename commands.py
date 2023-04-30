@@ -14,8 +14,7 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     elif input=="help":
         access_all.help(role)
     elif input=="exit":
-        masukkan =input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (Y/N)")
-        access_all.exit(masukkan)
+        access_all.exit(users,candi,bahan_bangunan)
     elif input=="tempstate":
         access_all.tempstate(role,uname,users,candi,bahan_bangunan)
         # return (role,uname,users,candi,bahan_bangunan)
