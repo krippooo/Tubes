@@ -117,63 +117,65 @@ def load() -> str:
         exit()
 
 #F14 Save
-def saveuser(file_name, users):
-    directory = os.path.join(path2, file_name)              # directory diperlukan agar save bisa dilakukan di folder yang sesuai
-    f=open(directory, "w")                                  
-    for user in users:
-        f.write(f"{user[0]};{user[1]};{user[2]}\n")
+def save(users, candi, bahan_bangunan)
+
+    def saveuser(file_name, users):
+        directory = os.path.join(path2, file_name)              # directory diperlukan agar save bisa dilakukan di folder yang sesuai
+        f=open(directory, "w")                                  
+        for user in users:
+            f.write(f"{user[0]};{user[1]};{user[2]}\n")
 
 
-def savecandi(file_name, candi):
-    directory = os.path.join(path2, file_name)              # directory diperlukan agar save bisa dilakukan di folder yang sesuai
-    f=open(directory, "w")
-    for per_candi in candi:
-        f.write(f"{per_candi[0]};{per_candi[1]};{per_candi[2]};{per_candi[3]};{per_candi[4]}\n")
+    def savecandi(file_name, candi):   
+        directory = os.path.join(path2, file_name)              # directory diperlukan agar save bisa dilakukan di folder yang sesuai
+        f=open(directory, "w")
+        for per_candi in candi:
+            f.write(f"{per_candi[0]};{per_candi[1]};{per_candi[2]};{per_candi[3]};{per_candi[4]}\n")
             
-def savebahan(file_name, bahan_bangunan):
-    directory = os.path.join(path2, file_name)              # directory diperlukan agar save bisa dilakukan di folder yang sesuai
-    f=open(directory, "w")
-    for bahan in bahan_bangunan:
-        f.write(f"{bahan[0]};{bahan[1]};{bahan[2]}\n")         
+    def savebahan(file_name, bahan_bangunan):
+        directory = os.path.join(path2, file_name)              # directory diperlukan agar save bisa dilakukan di folder yang sesuai
+        f=open(directory, "w")
+        for bahan in bahan_bangunan:
+            f.write(f"{bahan[0]};{bahan[1]};{bahan[2]}\n")         
 
-direct = os.getcwd()                    # untuk mengetahui directory yang digunakan sekarang
-ada_save = "save"                       
-path = os.path.join(direct, ada_save)   # penggabungan untuk membuat directory baru yang memunculkan folder save
-nama_fol = input("Masukan nama folder : ")
-isdir = os.path.isdir(path)             # mengecek ada atau tidaknya directory yang diperlukan di dalam system
-path2 = os.path.join(path,nama_fol)     # penggabungan untuk membuat directory baru yang memunculkan folder sesuai dengan yang diinput
-isdir2 = os.path.isdir(path2)           # mengecek ada atau tidaknya directory yang diperlukan 
-print("\n")
-print("Saving...")
+    direct = os.getcwd()                    # untuk mengetahui directory yang digunakan sekarang
+    ada_save = "save"                       
+    path = os.path.join(direct, ada_save)   # penggabungan untuk membuat directory baru yang memunculkan folder save
+    nama_fol = input("Masukan nama folder : ")
+    isdir = os.path.isdir(path)             # mengecek ada atau tidaknya directory yang diperlukan di dalam system
+    path2 = os.path.join(path,nama_fol)     # penggabungan untuk membuat directory baru yang memunculkan folder sesuai dengan yang diinput
+    isdir2 = os.path.isdir(path2)           # mengecek ada atau tidaknya directory yang diperlukan 
+    print("\n")
+    print("Saving...")
 
-if isdir == False :                     # Tidak ada directory \save
-    os.mkdir("save")                    # Membuat folder save pada directory
-    print("Membuat folder save")
-    if isdir2 == False:                 # Tidak ada directory \save\nama_fol
-        os.mkdir(path2)                 # Membuat folder baru
-        print("Membuat folder", nama_fol)
-        saveuser('user.csv', users)
-        savecandi('candi.csv', candi)
-        savebahan('bahan_bangunan.csv', bahan_bangunan)
-        print("Berhasil menyimpan data di folder save/"+nama_fol)
+    if isdir == False :                     # Tidak ada directory \save
+        os.mkdir("save")                    # Membuat folder save pada directory
+        print("Membuat folder save")
+        if isdir2 == False:                 # Tidak ada directory \save\nama_fol
+            os.mkdir(path2)                 # Membuat folder baru
+            print("Membuat folder", nama_fol)
+            saveuser('user.csv', users)
+            savecandi('candi.csv', candi)
+            savebahan('bahan_bangunan.csv', bahan_bangunan)
+            print("Berhasil menyimpan data di folder save/"+nama_fol)
 
+        else :
+            saveuser('user.csv', users)
+            savecandi('candi.csv', candi)
+            savebahan('bahan_bangunan.csv', bahan_bangunan)
+            print("Berhasil menyimpan data di folder save/"+nama_fol)
     else :
-        saveuser('user.csv', users)
-        savecandi('candi.csv', candi)
-        savebahan('bahan_bangunan.csv', bahan_bangunan)
-        print("Berhasil menyimpan data di folder save/"+nama_fol)
-else :
-    if isdir2 == False:
-        os.mkdir(path2)
-        print("Membuat folder", nama_fol)
-        saveuser('user.csv', users)
-        savecandi('candi.csv', candi)
-        savebahan('bahan_bangunan.csv', bahan_bangunan)
-        print("Berhasil menyimpan data di folder save/"+nama_fol)
+        if isdir2 == False:
+            os.mkdir(path2)
+            print("Membuat folder", nama_fol)
+            saveuser('user.csv', users)
+            savecandi('candi.csv', candi)
+            savebahan('bahan_bangunan.csv', bahan_bangunan)
+            print("Berhasil menyimpan data di folder save/"+nama_fol)
 
-    else :
-        saveuser('user.csv', users)
-        savecandi('candi.csv', candi)
-        savebahan('bahan_bangunan.csv', bahan_bangunan)
-        print("Berhasil menyimpan data di folder save/"+nama_fol)
+        else :
+            saveuser('user.csv', users)
+            savecandi('candi.csv', candi)
+            savebahan('bahan_bangunan.csv', bahan_bangunan)
+            print("Berhasil menyimpan data di folder save/"+nama_fol)
 
