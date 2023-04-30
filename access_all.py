@@ -64,7 +64,9 @@ def help(role):
         print("=========== HELP ===========")
         print("1. login")
         print("Untuk masuk menggunakan akun")
-        print("2. exit")
+        print('2. save')
+        print('Untuk menyimpan progres permainan')
+        print("3. exit")
         print("Untuk keluar dari program dan kembali ke terminal")
     elif role == "bandung_bondowoso":
         print("=========== HELP ===========")
@@ -84,6 +86,10 @@ def help(role):
         print('Untuk melihat kinerja para jin dan informasi mengenai bahan bangunan')
         print('8. laporancandi')
         print('Untuk mengetahui progress pembangunan candi')
+        print('9. save')
+        print('Untuk menyimpan progres permainan')
+        print('10. exit')
+        print('Untuk keluar dari program dan kembali ke terminal')
     elif role == "roro_jonggrang":
         print("=========== HELP ===========")
         print("1. logout")
@@ -92,19 +98,30 @@ def help(role):
         print("Untuk menghancurkan candi dan menggagalkan usaha Bandung Bondowoso")
         print("3. ayamberkokok")
         print("Untuk menyelesaikan permainan")
+        print('4. save')
+        print('Untuk menyimpan progres permainan')
+        print('5. exit')
+        print('Untuk keluar dari program dan kembali ke terminal')
     elif role == "jin_pembangun":
         print("=========== HELP ===========")
         print("1. logout")
         print("Untuk keluar dari akun yang digunakan sekarang")
         print('2. bangun')
         print('Untuk membangun candi')
+        print('3. save')
+        print('Untuk menyimpan progres permainan')
+        print('4. exit')
+        print('Untuk keluar dari program dan kembali ke terminal')
     elif role == 'jin_pengumpul':
         print("=========== HELP ===========")
         print("1. logout")
         print("Untuk keluar dari akun yang digunakan sekarang")
         print("2. kumpul")
         print('Untuk mengumpulkan bahan bangunan')
-
+        print('3. save')
+        print('Untuk menyimpan progres permainan')
+        print('4. exit')
+        print('Untuk keluar dari program dan kembali ke terminal')
 #F16 Exit
 def exit(users, candi, bahan_bangunan):
     masukkan = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (Y/N) ")
