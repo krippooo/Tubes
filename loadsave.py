@@ -1,4 +1,3 @@
-import os
 #F13 
 import argparse
 import os
@@ -141,25 +140,25 @@ def save(users,candi,bahan_bangunan) :
     ada_save = "save"
     path = os.path.join(direct, ada_save)
     nama_fol = input("Masukan nama folder : ")
-
+    isdir = os.path.isdir(path)
+    path2 = os.path.join(path,nama_fol)
+    isdir2 = os.path.isdir(path2)
     print("\n")
     print("Saving...")
 
-    for files in os.walk(direct):
-        if nama_fol not in files :
-            os.mkdir(path)
-            print("Membuat folder save...")
-    for files in os.walk(path):
-        if nama_fol in files :
+    if isdir == False :
+        os.mkdir("save")
+        ("Membuat folder save")
+    else :
+        if isdir2 == False:
+            os.mkdir(path2)
             saveuser('user.csv', users)
             savecandi('candi.csv', candi)
             savebahan('bahan_bangunan.csv', bahan_bangunan)
             print("Berhasil menyimpan data di folder save/"+nama_fol)
-        if nama_fol not in files :
-            os.mkdir(nama_fol)
-            path2 = os.path.join(path,nama_fol)
-    for files in os.walk(path2):
-        saveuser('user.csv', users)
-        savecandi('candi.csv', candi)
-        savebahan('bahan_bangunan.csv', bahan_bangunan)
-        print("Berhasil menyimpan data di folder save/"+nama_fol)
+
+        else :
+            saveuser('user.csv', users)
+            savecandi('candi.csv', candi)
+            savebahan('bahan_bangunan.csv', bahan_bangunan)
+            print("Berhasil menyimpan data di folder save/"+nama_fol)
