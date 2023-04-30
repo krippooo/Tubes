@@ -118,22 +118,24 @@ def load() -> str:
 
 #F14 Save
 def save(users,candi,bahan_bangunan) :
-    
     def saveuser(file_name, users):
-        f=open(file_name, "w")
-        for user in users:
-            f.write(f"{user[0]};{user[1]};{user[2]}\n")
+    directory = os.path.join(path2, file_name)
+    f=open(directory, "w")
+    for user in users:
+        f.write(f"{user[0]};{user[1]};{user[2]}\n")
 
 
     def savecandi(file_name, candi):
-        f=open(file_name, "w")
+        directory = os.path.join(path2, file_name)
+        f=open(directory, "w")
         for per_candi in candi:
             f.write(f"{per_candi[0]};{per_candi[1]};{per_candi[2]};{per_candi[3]};{per_candi[4]}\n")
             
     def savebahan(file_name, bahan_bangunan):
-        f=open(file_name, "w")
+        directory = os.path.join(path2, file_name)
+        f=open(directory, "w")
         for bahan in bahan_bangunan:
-            f.write(f"{bahan[0]};{bahan[1]};{bahan[2]}\n")
+            f.write(f"{bahan[0]};{bahan[1]};{bahan[2]}\n")      
             
 
     direct = os.getcwd()
