@@ -1,5 +1,6 @@
 #F01 #F02 #F15 #F16
 import sys
+from loadsave import save
 
 #F01 Login
 def login(uname,users,role):
@@ -105,12 +106,13 @@ def help(role):
         print('Untuk mengumpulkan bahan bangunan')
 
 #F16 Exit
-def exit(masukkan):
+def exit(users, candi, bahan_bangunan):
+    masukkan = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (Y/N) ")
     if masukkan == "y" or "Y" :
-        save()
+        save(users,candi,bahan_bangunan)
         sys.exit("Anda telah keluar dari program")
     elif masukkan == 'n' or "N" :
         sys.exit("Anda telah keluar dari program")
     else :
-        exit()
+        exit(users,candi,bahan_bangunan)
 
