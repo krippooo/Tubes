@@ -70,6 +70,8 @@ def help(role):
         print('Untuk menyimpan progres permainan')
         print("3. exit")
         print("Untuk keluar dari program dan kembali ke terminal")
+        print("4. tempstate")
+        print("Untuk melihat status username, role yang sedang terlogin dan matriks users (pengguna), candi, dan bahan bangunan sementara")
     elif role == "bandung_bondowoso":
         print("=========== HELP ===========")
         print("1. logout")
@@ -92,6 +94,10 @@ def help(role):
         print('Untuk menyimpan progres permainan')
         print('10. exit')
         print('Untuk keluar dari program dan kembali ke terminal')
+        print("11. batchsummon")
+        print("Untuk melakukan summon beberapa jin sekaligus")
+        print("12. tempstate")
+        print("Untuk melihat status username, role yang sedang terlogin dan matriks users (pengguna), candi, dan bahan bangunan sementara")
     elif role == "roro_jonggrang":
         print("=========== HELP ===========")
         print("1. logout")
@@ -104,6 +110,8 @@ def help(role):
         print('Untuk menyimpan progres permainan')
         print('5. exit')
         print('Untuk keluar dari program dan kembali ke terminal')
+        print("6. tempstate")
+        print("Untuk melihat status username, role yang sedang terlogin dan matriks users (pengguna), candi, dan bahan bangunan sementara")
     elif role == "jin_pembangun":
         print("=========== HELP ===========")
         print("1. logout")
@@ -114,6 +122,8 @@ def help(role):
         print('Untuk menyimpan progres permainan')
         print('4. exit')
         print('Untuk keluar dari program dan kembali ke terminal')
+        print("5. tempstate")
+        print("Untuk melihat status username, role yang sedang terlogin dan matriks users (pengguna), candi, dan bahan bangunan sementara")
     elif role == 'jin_pengumpul':
         print("=========== HELP ===========")
         print("1. logout")
@@ -124,6 +134,8 @@ def help(role):
         print('Untuk menyimpan progres permainan')
         print('4. exit')
         print('Untuk keluar dari program dan kembali ke terminal')
+        print("5. tempstate")
+        print("Untuk melihat status username, role yang sedang terlogin dan matriks users (pengguna), candi, dan bahan bangunan sementara")
 
 #F16 Exit
 def exit(users, candi, bahan_bangunan):
