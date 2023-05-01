@@ -118,15 +118,15 @@ import sys
 def load(folder):
     import loadcsv
     directory_path = os.getcwd()
-    items_in_directory = os.listdir(f"{directory_path}/save")
-    for item in items_in_directory:
-        if str(item) == str(folder): 
-            print("\nLoading...\n")
-            users = loadcsv.loaduser(folder) # Matriks data user
-            candi = loadcsv.loadcandi(folder) # Matriks data candi
-            bahan_bangunan = loadcsv.loadbahan(folder) # Data bahan bangunan
-            return (users,candi,bahan_bangunan)
+    fold = (f"{directory_path}/save/{folder}")
+    if os.path.isdir(fold): 
+        print("\nLoading...\n")
+        users = loadcsv.loaduser(folder) # Matriks data user
+        candi = loadcsv.loadcandi(folder) # Matriks data candi
+        bahan_bangunan = loadcsv.loadbahan(folder) # Data bahan bangunan
+        return (users,candi,bahan_bangunan)
     sys.exit(f"Folder {folder} tidak ditemukan.")
+    
     
 #F14 Save
 def save(users, candi, bahan_bangunan) :
