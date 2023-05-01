@@ -4,7 +4,7 @@
 def hitungjin(users):
     """menghitung banyak jin yang ada"""
     jumlah_jin=0
-    for i in range(110):
+    for i in range(3, 110):
         if users[i][0]!="":
             jumlah_jin+=1
     return jumlah_jin
@@ -27,7 +27,8 @@ def summon(users):
         print(" (1) Pengumpul - Bertugas mengumpulkan bahan bangunan")
         print(" (2) Pembangun - Bertugas membangun candi")
 
-        nomor_role=int(input("Masukkan nomor jenis jin yang ingin dipanggil: "))
+        nomor_role=input("Masukkan nomor jenis jin yang ingin dipanggil: ")
+        nomor_role=int(nomor_role)
         while nomor_role!=1 and nomor_role!=2:
             print(f"Tidak ada jenis jin bernomor “{nomor_role}”!")
             print("\n")
@@ -96,7 +97,6 @@ def hapus(users,candi):
         return cek
     userjin = usernamejin(users)
     if userjin != []:
-        print(userjin)
         jin = input("Masukkan username jin : ")
         if isvalid(userjin,jin)==True:
             conf = input(f'apakah anda yakin menghapus jin dengan username {jin} (Y/N)?')
@@ -387,5 +387,14 @@ def laporancandi(candi):
     print(f"ID Candi Termurah:  {id_termurah} ({mins})")
 
     
+def batchsummon(users):
+    #Melakukan summonjin sekaligus
+    n = int(input("Masukkan jin yang ingin Anda summon?"))
+    
+    for i in range(n):
+        jumlah_jin=hitungjin(users)
+        if jumlah_jin<100:
+            users=summon(users)
+    
+    return (users)
 
-        
