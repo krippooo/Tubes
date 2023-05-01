@@ -50,12 +50,14 @@ def logout(akses,uname):
 
 #Untuk Checker
 def tempstate(role, uname,users,candi,bahan_bangunan):
-    print(role)
-    print(uname)
-    print(users)
-    print(candi)
-    print(bahan_bangunan)
-
+    print("role:", role)
+    print("username:", uname)
+    for user in users:
+        print(user)
+    for per_candi in candi:
+        print(per_candi)
+    for bahan in bahan_bangunan:
+        print(bahan)
 
 
 #F15 Help
@@ -122,6 +124,7 @@ def help(role):
         print('Untuk menyimpan progres permainan')
         print('4. exit')
         print('Untuk keluar dari program dan kembali ke terminal')
+
 #F16 Exit
 def exit(users, candi, bahan_bangunan):
     masukkan = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (Y/N) ")
