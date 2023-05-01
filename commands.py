@@ -37,7 +37,7 @@ def run(input,role,uname,users,candi,bahan_bangunan):
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     elif input=="ubahjin":
         if role=="bandung_bondowoso":
-            access_bandung.ubah()
+            users=access_bandung.ubahjin(users)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     elif input=="batchkumpul":
