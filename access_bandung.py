@@ -123,6 +123,10 @@ def hapus(users,candi):
 def ubahjin (users):
     uname = input("Masukkan username jin :")
     if cekuname (users, uname) == True:
+        for i in range (3,110):
+            if users[i][0] == uname :
+                role = users[i][2]
+                break
         if role == "jin_pembangun" :
             change = input("JIn ini bertipe \"Pembangun\". Yakin ingin mengubah ke tipe \"Pengumpul\" (Y/N)?  ")
             if change == "y" or "Y" :
@@ -143,12 +147,13 @@ def ubahjin (users):
                 print("Silahkan ulangi command, input yang anda berikan salah")
     if cekuname(users, uname) == False :
         print("Tidak ada jin dengan username tersebut")
-        
     
     for i in range (3,110):
         if users[i][0] == uname :
             users[i][2] = role
             break
+        
+    return users
 
 #F08 Batch Kumpul Bangun
 def batchkumpul(users,bahan_bangunan):
