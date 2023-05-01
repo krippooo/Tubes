@@ -1,8 +1,8 @@
-def loaduser():
+def loaduser(folder):
     """memasukkan nilai-nilai di user.csv ke dalam matriks"""
     arr=[['' for j in range(3)] for i in range (110)]
 
-    f=open("user.csv",'r')
+    f=open(f"save/{folder}/user.csv",'r')
     for i in range (0, 110):
         r=f.readline().rstrip()
         c=0
@@ -23,12 +23,12 @@ def loaduser():
     return(arr)
 
 
-def loadcandi():
+def loadcandi(folder):
     """memasukkan nilai-nilai di candi.csv ke dalam matriks"""
 
     arr=[['' for j in range(5)] for i in range (110)]
 
-    f=open("candi.csv",'r')
+    f=open(f"save/{folder}/candi.csv",'r')
     for i in range (0, 110):
         r=f.readline().rstrip()
         c=0
@@ -48,12 +48,12 @@ def loadcandi():
 
     return(arr)
 
-def loadbahan():
+def loadbahan(folder):
     """memasukkan nilai-nilai di bahan_bangunan.csv ke dalam matriks"""
 
     arr=[['' for j in range(3)] for i in range (4)]
 
-    f=open("bahan_bangunan.csv",'r')
+    f=open(f"save/{folder}/bahan_bangunan.csv",'r')
     for i in range (4):
         r=f.readline().rstrip()
         c=0
