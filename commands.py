@@ -60,7 +60,11 @@ def run(input,role,uname,users,candi,bahan_bangunan):
     elif input=="laporancandi":
         if role=="bandung_bondowoso":
             access_bandung.laporancandi(candi)
-            # return (role,uname,users,candi,bahan_bangunan)
+        else:
+            print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
+    elif input=="batchsummon":
+        if role=="bandung_bondowoso":
+            users=access_bandung.batchsummon(users)
         else:
             print("Anda tidak dapat melakukannya. Silakan gunakan command 'help' untuk melihat yang dapat Anda lakukan.")
     
